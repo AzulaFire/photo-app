@@ -49,20 +49,20 @@ export default function PhotoGrid() {
       : photos.filter((photo) => photo.category === filter);
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-zinc-900 to-zinc-950 text-white p-6'>
+    <div className='text-white p-6'>
       {/* Header Buttons */}
-      <header className='flex justify-center space-x-4 py-4 uppercase mb-6'>
+      <header className='flex flex-wrap justify-center gap-4 py-4 uppercase mb-6'>
         {['all', 'hananingen', 'photoshoot', 'art'].map((type) => (
           <button
             key={type}
             className={`px-6 py-2 rounded transition-colors duration-300 ${
               filter === type
-                ? 'bg-amber-500 scale-105'
-                : 'bg-amber-700 hover:bg-gray-600'
+                ? 'bg-zinc-500 scale-105'
+                : 'bg-zinc-700 hover:bg-gray-600'
             }`}
             onClick={() => setFilter(type)}
           >
-            {type.charAt(0).toUpperCase() + type.slice(1)}
+            {type.toUpperCase()}
           </button>
         ))}
       </header>
@@ -74,7 +74,7 @@ export default function PhotoGrid() {
             key={index}
             initial={{ scale: 0.9 }}
             whileHover={{ scale: 1, transition: { duration: 0.5 } }}
-            className='relative overflow-hidden shadow-lg cursor-pointer group'
+            className='relative overflow-hidden shadow-lg cursor-pointer group vignette'
             onClick={() => setSelectedImage(photo.src)}
           >
             {/* Image */}
@@ -83,7 +83,7 @@ export default function PhotoGrid() {
               alt={`Photo ${index + 1}`}
               width={500}
               height={300}
-              className='w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700 hover:border-8 hover:border-zinc-800 hover:z-50'
+              className='w-full h-full object-cover vignette-image'
             />
           </motion.div>
         ))}

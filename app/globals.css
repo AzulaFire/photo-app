@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --font-sans: var(--font-geist-sans);
@@ -21,4 +21,28 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.vignette {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-shadow: inset 0 0 70px 50px rgb(23, 24, 23); /* Vignette effect */
+}
+
+.image-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.vignette-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: opacity 0.7s;
+}
+
+.vignette-image:hover {
+  opacity: 1;
 }
